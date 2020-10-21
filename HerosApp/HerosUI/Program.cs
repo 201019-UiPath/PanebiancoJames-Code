@@ -7,6 +7,7 @@ namespace HerosUI
     {
         static void Main(string[] args)
         {
+            Hero obj = new Hero();
             #region default constructor
             #endregion
             #region Parametrized constructor
@@ -24,7 +25,7 @@ namespace HerosUI
             */
             #endregion
             #region Accessing 1-D Arrays
-            Hero obj = new Hero();
+            /*Hero obj = new Hero();
             
             Console.Write("Please enter your heros id: ");
             obj.Id=Int32.Parse(Console.ReadLine());
@@ -34,7 +35,7 @@ namespace HerosUI
             obj.superPowers[0]=Console.ReadLine();
             Console.Write($"{obj.Id} {obj.Name}  {obj.superPowers[0]}");
             
-            /*
+            
             //Jagged Arrays
             obj.ja[0] = new int[2]; //  first column
             obj.ja[1] = new int[3]; // second column
@@ -60,6 +61,34 @@ namespace HerosUI
                 Console.WriteLine();
             }
             */
+            #endregion
+            #region List<T>
+            // List Code
+            /*
+            Console.WriteLine("Please enter the super power to be removed: ");
+            string sp = Console.ReadLine();
+            Hero.superPowers.Remove(sp); 
+            foreach(var superPowers in Hero.GetSuperPowers())
+            {
+                Console.WriteLine(superPowers);
+            }
+            */
+            #endregion
+            #region Stack<T>
+            /*
+            foreach(var superPowers in Hero.GetSuperPowers())
+            {
+                Console.WriteLine(superPowers);
+            }
+            */
+            #endregion
+            #region Dictionary<key, value>
+            Console.WriteLine("Super Hero        Hideout");
+            foreach(var superhero in Hero.hideOuts)
+            {
+                Console.WriteLine($"{superhero.Key} {Hero.hideOuts[superhero.Key]}");
+                //Console.WriteLine($"{superhero.Key} {superhero.Value}"); new way to access key values
+            }
             #endregion
         }
     }
