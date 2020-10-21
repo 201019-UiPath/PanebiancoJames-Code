@@ -1,5 +1,6 @@
 ﻿using System;
 using HerosLib;
+using HerosUI.Menus;
 
 namespace HerosUI
 {
@@ -7,7 +8,7 @@ namespace HerosUI
     {
         static void Main(string[] args)
         {
-            Hero obj = new Hero();
+           // Hero obj = new Hero();
             #region default constructor
             #endregion
             #region Parametrized constructor
@@ -83,12 +84,18 @@ namespace HerosUI
             */
             #endregion
             #region Dictionary<key, value>
+            /*
             Console.WriteLine("Super Hero        Hideout");
             foreach(var superhero in Hero.hideOuts)
             {
                 Console.WriteLine($"{superhero.Key} {Hero.hideOuts[superhero.Key]}");
                 //Console.WriteLine($"{superhero.Key} {superhero.Value}"); new way to access key values
             }
+            */
+            #endregion
+            #region Calling Hero Menu
+            IMenu startMenu = new MainMenu();
+            startMenu.Start();
             #endregion
         }
     }
