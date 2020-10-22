@@ -1,25 +1,23 @@
 using System;
 using Xunit;
 using HerosLib;
-
 namespace HerosTest
 {
     public class HeroTest
     {
         Hero testHero = new Hero();
+
         [Theory]
         [InlineData("Unit testing god")]
         [InlineData("Flying")]
         [InlineData("Laser Eyes")]
-        public void AddSuperPowerShouldAddSuperPower(string superPower)
+        public void AddSuperPowerShouldAddSuperpower(string superPower)
         {
-            
-            // Act (Do the thing you wanna test)
+            //Act (Do the thing you wanna test)
             testHero.AddSuperPower(superPower);
 
-            // Assert                              // Peek allows looking at top unit of a stack without Poping it off
+            //Assert
             Assert.Equal(superPower, Hero.superPowers.Peek());
-
         }
 
         [Theory]
@@ -27,8 +25,10 @@ namespace HerosTest
         [InlineData(null)]
         public void AddSuperPowerShouldThrowArgumentException(string superPower)
         {
-            // Catching exceptions in unti tests
+            //Catching exceptions in unit tests, act and assert are in same 
+            //Act and Assert are in the same line
             Assert.Throws<ArgumentException>(() => testHero.AddSuperPower(superPower));
         }
+
     }
 }

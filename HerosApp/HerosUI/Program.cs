@@ -1,99 +1,74 @@
 ﻿using System;
 using HerosLib;
 using HerosUI.Menus;
-
 namespace HerosUI
 {
     class Program
     {
         static void Main(string[] args)
         {
-           // Hero obj = new Hero();
+            //Hero obj=new Hero();
             #region default constructor
+            /*Hero obj=new Hero();
+            Console.WriteLine($"{obj.id} {obj.name}" );*/
             #endregion
-            #region Parametrized constructor
+            #region Parameterized constructor
             //Hero obj1=new Hero(2, "Narco");
-               // Console.WriteLine($"{obj1.id} {obj1.name}");
-            /*
-            Hero obj=new Hero();
-            Console.WriteLine($"{obj.id} {obj.name}");
-            */
+           //Program obj1=new Program();
+           //Console.WriteLine($"{obj1.id} {obj1.name}" );// cannot access the variable if they arenot public
             #endregion
             #region Access via Properties
-            /*Console.WriteLine(obj1.Id);
-            obj1.Id=3;
-            Console.Write($"New Id = {obj1.Id}"); // write into a property
-            */
+            // Console.WriteLine(obj1.Id);// read property value
+            // obj1.Id=3;
+            // Console.Write($"New Id = {obj1.Id}");// write into a property
             #endregion
-            #region Accessing 1-D Arrays
-            /*Hero obj = new Hero();
-            
-            Console.Write("Please enter your heros id: ");
+            #region Accessing  Arrays
+           
+            /*Console.Write("Please enter your heros id: ");
             obj.Id=Int32.Parse(Console.ReadLine());
-            Console.Write("Please enter your Superhero name: ");
+            Console.Write("Please enter your Superhero name:");
             obj.Name=Console.ReadLine();
             Console.Write("Enter the first Power: ");
-            obj.superPowers[0]=Console.ReadLine();
-            Console.Write($"{obj.Id} {obj.Name}  {obj.superPowers[0]}");
-            
-            
-            //Jagged Arrays
-            obj.ja[0] = new int[2]; //  first column
-            obj.ja[1] = new int[3]; // second column
-            obj.ja[2] = new int[1]; // third column
+            obj.superPowers[0]
+            Console.ReadLine();
+            Console.Write($"{obj.Id} {obj.Name}  {obj.superPowers[0]}");*/
+            // Jagged Arrays rows initializations
+            /*obj.ja[0]=new int[2];// first column
+            obj.ja[1]=new int[3];// second column
+            obj.ja[2]=new int[1];// third column
             obj.ja[0][0]=10;
             obj.ja[1][2]=15;
-            int[,] td = new int[2,4]; //Create a 2D Array
-            Console.WriteLine($"Rank of 2D Array: {td.Rank}");
-            Console.WriteLine($"Length of 2D Array: {td.Length}");
-
-            Console.WriteLine($"Rank of Jagged Array: {obj.ja.Rank}"); // rank is the dimension of the array
-            Console.WriteLine($"Length of Jagged Array: {obj.ja.Length}"); // Elements of the array
-
+            int[,,] td=new int[2,4,3];// 3-D arrays
+            Console.WriteLine($"Dimension of the Array - {td.Rank}D");
+            Console.WriteLine($"Number of elements in the Array - {td.Length}");
+            Console.WriteLine(obj.ja.Rank);// rank is dimenssion of the array
+            Console.WriteLine(obj.ja.Length);// elements of the arrays
             // loop through the jagged array
-
-            foreach (var rows in obj.ja) // looping through all rows
+            foreach (var rows in obj.ja) //looping through all rows
             {
-                // looping through all columns of every row
-                for(int i=0; i < rows.Length; i++)
-                {
+                //looping through all columns of every row
+                for(int i=0; i<rows.Length;i++){
                     Console.Write($"{rows[i]} ");
                 }
                 Console.WriteLine();
-            }
-            */
-            #endregion
-            #region List<T>
-            // List Code
-            /*
-            Console.WriteLine("Please enter the super power to be removed: ");
-            string sp = Console.ReadLine();
-            Hero.superPowers.Remove(sp); 
-            foreach(var superPowers in Hero.GetSuperPowers())
-            {
-                Console.WriteLine(superPowers);
-            }
-            */
-            #endregion
-            #region Stack<T>
-            /*
-            foreach(var superPowers in Hero.GetSuperPowers())
-            {
-                Console.WriteLine(superPowers);
-            }
-            */
+            }*/
+                        #endregion
+            #region List<T>, Stack<T>
+            //Console.WriteLine("Please enter the super power to be removed ");
+            //string sp=Console.ReadLine();
+            //Hero.superPowers.Remove(sp);
+            // foreach(var superPower in Hero.GetSuperPowers()){
+            //     Console.WriteLine(superPower);
+            // }
             #endregion
             #region Dictionary<key, value>
-            /*
-            Console.WriteLine("Super Hero        Hideout");
-            foreach(var superhero in Hero.hideOuts)
-            {
-                Console.WriteLine($"{superhero.Key} {Hero.hideOuts[superhero.Key]}");
-                //Console.WriteLine($"{superhero.Key} {superhero.Value}"); new way to access key values
-            }
-            */
+            // Console.WriteLine("Super Hero     Hideout");
+            // foreach(var superhero in Hero.hideOuts){
+            //    // Console.WriteLine($"{superhero.Key}   {Hero.hideOuts[superhero.Key]}"); // old way
+            // //Console.WriteLine($"{superhero.Key} {superhero.Value}"); // new way of accessing key values
+            // }
             #endregion
-            #region Calling Hero Menu
+            #region Calling hero menu
             IMenu startMenu = new MainMenu();
             startMenu.Start();
             #endregion

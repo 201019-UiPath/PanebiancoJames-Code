@@ -52,11 +52,9 @@ namespace HerosLib
            superPowers.Push("Visibility");
            superPowers.Push("See through");
 
-            /*
-           hideOuts.Add("Thor","Asgard");
-           hideOuts.Add("Batman","Batcave");
-           hideOuts.Add("Superman","Fortress Solitude ");
-           */
+        //    hideOuts.Add("Thor","Asgard");
+        //    hideOuts.Add("Batman","Batcave");
+        //    hideOuts.Add("Superman","Fortress Solitude ");
         }
        public static IEnumerable<string> GetSuperPowers(){
           
@@ -69,14 +67,9 @@ namespace HerosLib
           superPowers.Pop();
        }
        public void AddSuperPower(string superPower){
-           if(superPower != null && superPower != "")
-           {
-                superPowers.Push(superPower);
-           }
-           else
-           {
-                throw new ArgumentException("Super power shouldn't be null");
-           }
+           if(superPower != null && superPower != ""){
+               superPowers.Push(superPower);
+           } else throw new ArgumentException("Super power shouldn't be null");
        }
    }
    #endregion
