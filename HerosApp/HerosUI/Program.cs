@@ -76,12 +76,13 @@ namespace HerosUI
             #endregion
             #region Delegate, Anonymous methods, Lambda
             
-            HeroTasks heroTasks = new HeroTasks();
+            //HeroTasks heroTasks = new HeroTasks();
             
             // HeroDel del = new HeroDel(heroTasks.GetPowers);
-            Action del = new Action(heroTasks.GetPowers);
+            // Action del = new Action(heroTasks.GetPowers);
             // Func<string, string> fd = new Func<string, string> (some method);
             // Predicate<string> predicate = new Predicate<string>(some method);
+            /*
             del += heroTasks.DoWork;        // += subscribe to a method
             del += heroTasks.ManageLife;
             del();
@@ -98,6 +99,13 @@ namespace HerosUI
             // Lambda expression - shorthand notations to anonymous methods
             Action result = () => System.Console.WriteLine("Hello Lambda");
             result();
+            */
+            #endregion
+            #region Asynchronous vs Synchronous programming
+            HeroTasks heroTasks = new HeroTasks();
+            heroTasks.DoWork();
+            heroTasks.ManageLife();
+            Console.Read(); // Holds the screen until key is pressed
             #endregion
         }
     }
