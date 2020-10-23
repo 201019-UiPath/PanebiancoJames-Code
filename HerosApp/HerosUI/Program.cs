@@ -102,7 +102,13 @@ namespace HerosUI
             */
             #endregion
             #region Asynchronous vs Synchronous programming
+            // Subscribing to publisher
             HeroTasks heroTasks = new HeroTasks();
+
+            heroTasks.workDone += EmailService.SendEmail;
+            heroTasks.workDone += TextMessageService.SendText;
+            heroTasks.workDone += PushNotification.SendPushNotification;
+    
             heroTasks.DoWork();
             heroTasks.ManageLife();
             Console.Read(); // Holds the screen until key is pressed
