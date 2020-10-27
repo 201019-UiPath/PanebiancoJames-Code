@@ -69,10 +69,10 @@ namespace HerosUI
             // }
             #endregion
             #region Calling hero menu
-            /*
+            
             IMenu startMenu = new MainMenu();
             startMenu.Start();
-            */
+            
             #endregion
             #region Delegate, Anonymous methods, Lambda
             
@@ -103,6 +103,7 @@ namespace HerosUI
             #endregion
             #region Asynchronous vs Synchronous programming
             // Subscribing to publisher
+            /*
             HeroTasks heroTasks = new HeroTasks();
 
             heroTasks.workDone += EmailService.SendEmail;
@@ -112,6 +113,7 @@ namespace HerosUI
             heroTasks.DoWork();
             heroTasks.ManageLife();
             Console.Read(); // Holds the screen until key is pressed
+            */
             #endregion
         }
     }
