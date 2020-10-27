@@ -1,22 +1,19 @@
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
 using HerosDB.Models;
+using Microsoft.Extensions.Configuration;
 using System.IO;
 
 namespace HerosDB
 {
     public class HerosContext : DbContext
     {
-        public DbSet<SuperHero> SuperHeroes {get; set;}
-
-        public DbSet<SuperPower> SuperPowers {get; set;}
-
-        public DbSet<SuperVillain> SuperVillains {get; set;}
-
+        public DbSet<SuperHero> SuperHeroes { get; set; }
+        public DbSet<SuperPower> SuperPowers { get; set; }
+        public DbSet<SuperVillain> SuperVillains { get; set; } 
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            if (!(optionsBuilder.IsConfigured))
+            if(!(optionsBuilder.IsConfigured))
             {
                 var configuration = new ConfigurationBuilder()
                 .SetBasePath(Directory.GetCurrentDirectory())
@@ -27,7 +24,6 @@ namespace HerosDB
                 optionsBuilder.UseNpgsql(connectionString);
             }
         }
-
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<SuperEnemy>()
