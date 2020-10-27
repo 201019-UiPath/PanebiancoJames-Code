@@ -39,7 +39,7 @@ namespace HeroUI
                         //call get all villains
                         foreach (var villain in villainService.GetAllVillains())
                         {
-                            Console.WriteLine($"Hero: \n\tHero Alias: {villain.Alias} \n\tHero Real Name: {villain.RealName} \n\tHero Hideout: {villain.HideOut}");
+                            Console.WriteLine($"Villain: \n\tVillain Alias: {villain.Alias} \n\tVillain Real Name: {villain.RealName} \n\tVillain Hideout: {villain.HideOut}");
                             foreach (var power in villain.SuperPowers)
                             {
                                 Console.WriteLine($"\tSuper Powers:\n\t\tName: {power.Name}\n\t\tDescription: {power.Description}");
