@@ -1,48 +1,59 @@
 ﻿using System;
 using Npgsql;
+using System.Data;
 
 namespace HerosDbWithADO
 {
     public class Data
     {
-        // path to database
-        string connectionStr = "Host=lallah.db.elephantsql.com;Port=5432;Database=nftaixly;Username=nftaixly;Password=KWmPgfSJIVICyNybdRN0X-zWWQxngr8L";
-        
-        // create a conneciton
+    // - path to database 
+        string conStr="Host=lallah.db.elephantsql.com;Port=5432;Database=nftaixly;Username=nftaixly;Password=KWmPgfSJIVICyNybdRN0X-zWWQxngr8L";
+        // - create a connection
         NpgsqlConnection connection;
+        // - Fire the query
+        NpgsqlCommand command; // Connected
+        NpgsqlDataAdapter dataAdapter; // disconnected
+        // - get the results
+        NpgsqlDataReader reader;// reads in connected fashion in forward only direction
+        DataSet dataSet; // local storage to store output of DataAdapter in disconnected fashion
 
-        // fire the query
-        NpgsqlCommand command;
+        string query="select * from Superpeople";
 
-        // get the results
-        NpgsqlDataReader reader;
-
-
-        string query = "select * from Superpeople";
-        public void GetSuperPersonConnected()
-        {
+        public void GetSuperPersonConnected(){
             try{
-                connection = new NpgsqlConnection(connectionStr);
+                connection = new NpgsqlConnection(conStr);
                 connection.Open();
-                //command = new NpgsqlCommand(connection:connection, cmdText:query); // using named parameters
-                command = new NpgsqlCommand(query,connection);
-                // return the results of query
-                reader = command.ExecuteReader();
+                //command = new NpgsqlCommand(connection:connection, cmdText:query); //using named parameters
+                command = new NpgsqlCommand(query, connection); 
+                //return the results of query
+                reader=command.ExecuteReader();
                 // ExecuteReader reads value, used with select queries
-                // ExecuteNonQuary used with Insert, delete and update
-                while(reader.Read())
-                {
-                    System.Console.WriteLine($"{reader[0]} {reader[1]}");
+                // ExecuteNonQuery used with Insert, delete and update
+                while(reader.Read()){
+                    Console.WriteLine($"{reader[0]} {reader[1]}");
                 }
             }
-            catch(Exception ex) {
+            catch(Exception ex){
                 Console.WriteLine(ex.Message);
-
-                // Log the exception (Serilogg)
+                // Log the exception
             }
-            finally {
+            finally{
                 connection.Close();
             }
+        }
+
+        public void GetSuperPersonDisConnected(){
+            connection =new NpgsqlConnection(conStr);
+            // DataAdapter - fires the query, get results when connection is available
+            dataAdapter=new NpgsqlDataAdapter(query, connection);
+            dataSet=new DataSet();// creating an in-memory Db
+            int tables= dataAdapter.Fill(dataSet);
+            if(tables!=0){
+                foreach(DataRow rows in dataSet.Tables[0].Rows){
+                    Console.WriteLine($"{rows["id"]}  {rows["workname"]}  {rows["hideout"]}");
+                }
+            }
+
         }
     }
 }
